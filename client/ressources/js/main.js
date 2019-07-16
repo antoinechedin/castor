@@ -16,16 +16,16 @@ function submit_file() {
     var reader = new FileReader();
 
     reader.onload = function (e) {
-        gResultList = JSON.parse(e.target.result).resultList;
-        var resultListDiv = document.getElementById("result_list");
-        while (resultListDiv.lastChild) {
-            resultListDiv.removeChild(resultListDiv.lastChild);
+        castorTableList = JSON.parse(e.target.result).castorTableList;
+        var castorTableListDiv = document.getElementById("castor_table_list");
+        while (castorTableListDiv.lastChild) {
+            castorTableListDiv.removeChild(castorTableListDiv.lastChild);
         }
         gTableList = [];
 
         // For each query result
-        for (let id = 0; id < gResultList.length; id++) {
-            const result = gResultList[id];
+        for (let id = 0; id < castorTableList.length; id++) {
+            const result = castorTableList[id];
 
             var section = document.createElement("section"); // Create section
             section.classList = "container-fluid mt-5";
@@ -156,7 +156,7 @@ function submit_file() {
             tableObj.cells = cells;
             gTableList.push(tableObj);
 
-            resultListDiv.appendChild(section);
+            castorTableListDiv.appendChild(section);
         }
         //Activate tootips
         $('[data-toggle="tooltip"]').tooltip()
@@ -264,8 +264,8 @@ function changeTableState(id, state) {
             case "data":
                 for (var i = 0; i < cells.length; i++) {
                     for (var j = 0; j < cells[i].length; j++) {
-                        if (gResultList[id]["data"][i][j] !== null) {
-                            cells[i][j].textContent = +gResultList[id]["data"][i][j].toFixed(2)
+                        if (castorTableList[id]["data"][i][j] !== null) {
+                            cells[i][j].textContent = +castorTableList[id]["data"][i][j].toFixed(2)
                             var classList = cells[i][j].classList;
                             if (classList.length == 2) {
                                 classList.remove(classList[classList.length - 1])
@@ -279,8 +279,8 @@ function changeTableState(id, state) {
             case "significance":
                 for (var i = 0; i < cells.length; i++) {
                     for (var j = 0; j < cells[i].length; j++) {
-                        if (gResultList[id]["significanceScores"][i][j] !== null) {
-                            cells[i][j].textContent = +gResultList[id]["significanceScores"][i][j].toFixed(3)
+                        if (castorTableList[id]["significanceScores"][i][j] !== null) {
+                            cells[i][j].textContent = +castorTableList[id]["significanceScores"][i][j].toFixed(3)
                             var classList = cells[i][j].classList;
                             if (classList.length == 2) {
                                 classList.remove(classList[classList.length - 1])
@@ -294,8 +294,8 @@ function changeTableState(id, state) {
             case "surprise":
                 for (var i = 0; i < cells.length; i++) {
                     for (var j = 0; j < cells[i].length; j++) {
-                        if (gResultList[id]["surpriseScores"][i][j] !== null) {
-                            cells[i][j].textContent = +gResultList[id]["surpriseScores"][i][j].toFixed(3)
+                        if (castorTableList[id]["surpriseScores"][i][j] !== null) {
+                            cells[i][j].textContent = +castorTableList[id]["surpriseScores"][i][j].toFixed(3)
                             var classList = cells[i][j].classList;
                             if (classList.length == 2) {
                                 classList.remove(classList[classList.length - 1])
@@ -316,7 +316,7 @@ function changeTableState(id, state) {
 function switchColor(id) {
     var input = document.getElementById("section" + id + "-switch");
     var cells = gTableList[id].cells;
-    var clusters = gResultList[id].clusters;
+    var clusters = castorTableList[id].clusters;
     if (input.checked) {
         for (var row = 0; row < cells.length; row++) {
             for (var col = 0; col < cells[row].length; col++) {

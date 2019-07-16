@@ -1,5 +1,5 @@
 {
-  "resultList": [
+  "castorTableList": [
     {
       "query": "select NON EMPTY {Hierarchize({[Temps d\u0027emploi.TEMPSEMP_Hierarchie].[Temps d\u0027emploi].Members})} ON COLUMNS, NON EMPTY {Hierarchize({[Sexe.Sexe_Hierarchie].[Sexe].Members})} ON ROWS from [Cube1MobProInd]",
       "data": [
