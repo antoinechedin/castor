@@ -3,7 +3,6 @@ package olap;
 import org.olap4j.*;
 import org.olap4j.metadata.Dimension;
 import org.olap4j.metadata.Member;
-import result.HeaderTree;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -2,7 +2,7 @@ package castor.response;
 
 import algorithm.AlgorithmOne;
 import olap.CellSet;
-import result.HeaderTree;
+import olap.HeaderTree;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package result;
+package olap;
 
 import org.olap4j.CellSet;
 
