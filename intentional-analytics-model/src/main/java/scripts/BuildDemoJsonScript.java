@@ -49,7 +49,7 @@ public class BuildDemoJsonScript {
     /**
      * Session log file to execute
      */
-    private static final String JSON_LOG = "ressources/logs/dibstudent03_2016-09-25_16-20.json";
+    private static final String JSON_LOG = "ressources/logs/json/dibstudent03_2016-09-25_16-20.json";
 
     /**
      * Output path
